@@ -13,23 +13,41 @@ const AdminProfile = () => {
   navigate("/admin/profile-update")
 }
     
-    let getAdminProfile = async () => {
-        try {
-            let result = await axios({
-                url: `${url}/web-Users/my-profile`,
-                method: "get",
-                headers: {
-                    Authorization:`Bearer ${token}`
-                }
-            });
-            // console.log(result)
-            setProfile(result.data.result)
-        } catch (error) { }
-    }
+    // let getAdminProfile = async () => {
+    //     try {
+    //         let result = await axios({
+    //             url: `${url}/web-Users/my-profile`,
+    //             method: "get",
+    //             headers: {
+    //                 Authorization:`Bearer ${token}`
+    //             }
+    //         });
+    //         // console.log(result)
+    //         setProfile(result.data.result)
+    //     } catch (error) { }
+    // }
 
-    useEffect(() => {
-       getAdminProfile() 
-    },[])
+    // useEffect(() => {
+    //   getAdminProfile();
+  // }, [getAdminProfile]);
+  useEffect(() => {
+    const getAdminProfile = async () => {
+      try {
+        let result = await axios({
+          url: `${url}/web-Users/my-profile`,
+          method: "get",
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
+        setProfile(result.data.result);
+      } catch (error) {
+        // handle error
+      }
+    };
+
+    getAdminProfile();
+  }, [token]);
   return (
     <div className="h-[95vh] bg-gradient-to-br from-[#1B8AF1]  to-white   flex justify-center   ">
       <div className="">

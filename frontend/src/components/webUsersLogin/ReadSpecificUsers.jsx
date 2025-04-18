@@ -9,24 +9,25 @@ const ReadSpecificUsers = () => {
   let params = useParams();
   let [data, setData] = useState({});
 
-  const getData = async () => {
-    try {
-      let result = await axios({
-        url: `${url}/web-users/${params.id}`,
-        method: "get",
-        headers: {
-          Authorization: `Bearer ${localStorage.getItem("token")}`,
-        },
-      });
-      // console.log(result)
-
-      setData(result.data.result);
-    } catch (error) {}
-  };
+ 
 
   useEffect(() => {
+     const getData = async () => {
+       try {
+         let result = await axios({
+           url: `${url}/web-users/${params.id}`,
+           method: "get",
+           headers: {
+             Authorization: `Bearer ${localStorage.getItem("token")}`,
+           },
+         });
+         // console.log(result)
+
+         setData(result.data.result);
+       } catch (error) {}
+     };
     getData();
-  }, []);
+  }, [ params.id]);
 
   return (
     <div className="h-[95vh] bg-gradient-to-br from-[#1B8AF1]  to-white   flex justify-center ">

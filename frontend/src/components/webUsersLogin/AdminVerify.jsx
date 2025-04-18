@@ -9,23 +9,22 @@ const AdminVerify = () => {
   // console.log(token)
   let navigate = useNavigate()
 
-  let verifyEmail = () => {
-    try {
-      let result = axios(
-        {
+  
+  useEffect(() => {
+    let verifyEmail = () => {
+      try {
+        axios({
           url: `${url}/web-users/verify-email`,
           method: "patch",
           headers: {
-            "Authorization":`Bearer ${token}`
-          }
-        }
-      )
-      navigate("/admin/login")
-    } catch (error) {}
-  }
-  useEffect(() => {
-    verifyEmail()
-  },[])
+            Authorization: `Bearer ${token}`,
+          },
+        });
+        navigate("/admin/login");
+      } catch (error) {}
+    };
+    verifyEmail();
+  }, [token, navigate]);
 
   return <div>AdminVerify</div>;
 };

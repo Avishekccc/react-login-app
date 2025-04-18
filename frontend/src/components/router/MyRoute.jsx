@@ -19,7 +19,7 @@ import Dashboard from "../webUsersLogin/Dashboard";
 
 
 const MyRoute = () => {
-  let { token, setToken } = useContext(GlobalVariableContext);
+  let { token } = useContext(GlobalVariableContext);
   return (
     <div>
       <Routes>

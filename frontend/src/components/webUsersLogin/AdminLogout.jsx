@@ -13,7 +13,7 @@ const AdminLogout = () => {
         localStorage.removeItem("token");
         global.setToken(null);
        navigate("/") 
-    },[])
+    },[global,navigate])
   return (
     <div>AdminLogout</div>
   )

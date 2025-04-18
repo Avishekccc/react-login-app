@@ -11,6 +11,7 @@ const ReadAllUser = () => {
   it gives data
   set data to users
   */
+  
   const getData = async () => {
     try {
       let result = await axios({
@@ -20,14 +21,14 @@ const ReadAllUser = () => {
           Authorization: `Bearer ${localStorage.getItem("token")}`,
         },
       });
-      // console.log(result);
       setUsers(result.data.result);
-    } catch (error) {}
+    } catch (error) {
+      // handle error if needed
+    }
   };
-
-  useEffect(() => {
-    getData();
-  }, []);
+ useEffect(() => {
+   getData();
+ }, []); 
 
   return (
     <div className="flex flex-col h-[95vh] bg-gradient-to-br from-[#1B8AF1] to-white ">

@@ -23,7 +23,7 @@ let params = useParams()
     };
 
     try {
-      let result = await axios({
+       await axios({
         url: `${url}/web-Users/${params.id}`,
         method: "patch",
         data: data,
@@ -54,26 +54,30 @@ let params = useParams()
     },
   ];
 
-  let getAdminUser = async () => {
-    try {
-      let result = await axios({
-        url: `${url}/web-Users/${params.id}`,
-        method: "get",
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      });
-      let _data = result.data.result;
-
-      setFullName(_data.fullName);
-      setDob(htmlDateFormat(_data.dob));
-      setGender(_data.gender);
-    } catch (error) {}
-  };
-
+ 
   useEffect(() => {
+    const getAdminUser = async () => {
+      try {
+        let result = await axios({
+          url: `${url}/web-Users/${params.id}`,
+          method: "get",
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
+        let _data = result.data.result;
+
+        setFullName(_data.fullName);
+        setDob(htmlDateFormat(_data.dob));
+        setGender(_data.gender);
+      } catch (error) {
+        // handle error if needed
+      }
+    };
+
     getAdminUser();
-  }, []);
+  }, [ params.id,token]);
+
   return (
     <div className="h-[95vh] bg-gradient-to-br from-[#1B8AF1]  to-white   flex justify-center items-center">
       <div className="bg-slate-200 rounded-md px-[35px]  py-[30px] md:px-[35px] md:py-[50px] lg:py-[40px] shadow-lg shadow-blue-400">

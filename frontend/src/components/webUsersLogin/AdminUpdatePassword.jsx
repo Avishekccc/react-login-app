@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { url } from "../../constant";
 import axios from "axios";
 import { toast } from "react-toastify";
@@ -19,7 +19,7 @@ const AdminUpdatePassword = () => {
     };
 
     try {
-      let result = await axios({
+       await axios({
         url: `${url}/web-Users/update-password`,
         method: "patch",
         data: data,

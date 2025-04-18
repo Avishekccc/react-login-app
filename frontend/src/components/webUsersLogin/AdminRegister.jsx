@@ -34,7 +34,7 @@ const AdminRegister = () => {
       // console.log(data.gender);
 
       try {
-        let result = await axios({
+         await axios({
           url: `${url}/web-Users`,
           method: "post",
           data: data,

@@ -22,7 +22,7 @@ const AdminProfileUpdate = () => {
     };
 
     try {
-      let result = await axios({
+       await axios({
         url: `${url}/web-Users/update-profile`,
         method: "patch",
         data: data,
@@ -53,26 +53,27 @@ const AdminProfileUpdate = () => {
     },
   ];
 
-  let getAdminProfile = async () => {
-    try {
-      let result = await axios({
-        url: `${url}/web-Users/my-profile`,
-        method: "get",
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      });
-      let _data = result.data.result;
 
-      setFullName(_data.fullName);
-      setDob(_data.dob);
-      setGender(_data.gender);
-    } catch (error) {}
-  };
 
   useEffect(() => {
+      let getAdminProfile = async () => {
+        try {
+          let result = await axios({
+            url: `${url}/web-Users/my-profile`,
+            method: "get",
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          });
+          let _data = result.data.result;
+
+          setFullName(_data.fullName);
+          setDob(_data.dob);
+          setGender(_data.gender);
+        } catch (error) {}
+      };
     getAdminProfile();
-  }, []);
+  }, [token]);
   return (
     <div className="h-[95vh] bg-gradient-to-br from-[#1B8AF1]  to-white   flex justify-center items-center">
       <div className="bg-slate-200 rounded-md px-[35px]  py-[30px] md:px-[35px] md:py-[50px] lg:py-[40px] shadow-lg shadow-blue-400">
