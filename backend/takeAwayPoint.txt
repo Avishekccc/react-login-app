@@ -1,0 +1,58 @@
+always palce dynamic route at last.
+
+alt + shift + o
+    remove unused import
+    arrange all import from package in one place, and all import from file in another one
+
+isAuthenticated
+    it is used to chect whether the token is valid or not
+
+
+make variable from post man
+    how to define variable in postman (url, token)
+    how to call variable in post man
+
+send mail 
+    nodemailer
+
+.dotenv
+    define variable in dot env
+    get variable of dot env
+    what type if variable are store in .dotenv
+        imporatant credential variables
+        url, dburl
+        variable that need to be controll by the owner rather than developer
+    make .dotenv file outside src
+    it use UPPER_CASE_CONVENTAION
+    every data is .env file are string
+    make .env file in root directory
+    if you make any changes in .env file, you need to restart the program
+    
+
+multer
+
+    convert img to url
+
+status code
+    success
+            2xx
+            create or update => 201
+            for other        => 200
+
+    faliure
+        4xx
+        in general 400
+
+mongodb store data in the form array of object
+mongodb store data in the form collection of document
+
+to login web user
+    {
+        "fullName":"avinash",
+        "email":"shahabhishek456@gmail.com",
+        "password":"avinash123",
+        "dob":"2002",
+        "gender":"male",
+        "role":"admin"
+
+    }
