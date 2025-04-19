@@ -44,8 +44,8 @@ export const createWebUserController = expressAsyncHandler(
       to: data.email,
       subject: "account created",
       html: `<h1>You have successfully Registered in our system.</h1>
-      <a href="http://localhost:3000/verify-email?token=${token}">
-      http://localhost:3000/verify-email?token=${token}
+      <a href="https://react-login-backend-yoap.onrender.com/verify-email?token=${token}">
+      https://react-login-backend-yoap.onrender.com/verify-email?token=${token}
       </a>
       <h1>Click link to verify your email</h1>
       `,

@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useState } from "react";
 import { toast } from "react-toastify";
 import { url } from "../../constant";
+// REACT_APP_API_KEY = 1234567890;
 
 const AdminForgotPassword = () => {
   let [email, setEmail] = useState("");
