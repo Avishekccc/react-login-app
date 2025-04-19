@@ -11,15 +11,15 @@ const AdminVerify = () => {
 
   
   useEffect(() => {
-    let verifyEmail = () => {
+    let verifyEmail = async () => {
       try {
-        axios({
-          url: `${url}/web-users/verify-email`,
-          method: "patch",
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        });
+       await axios({
+         url: `${url}/web-users/verify-email`,
+         method: "patch",
+         headers: {
+           Authorization: `Bearer ${token}`,
+         },
+       });
         navigate("/admin/login");
       } catch (error) {}
     };
