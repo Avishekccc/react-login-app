@@ -44,7 +44,7 @@ export const createWebUserController = expressAsyncHandler(
       to: data.email,
       subject: "account created",
       html: `<h1>You have successfully Registered in our system.</h1>
-      <a href="https://react-login-app-v59x.onrender.com/verify-email?token=${token}">
+      <a href="react-login-system.netlify.app/verify-email?token=${token}">
       Click here to verify your email.
       </a>
       `,
@@ -260,7 +260,7 @@ export const forgotPasswordWebUserController = expressAsyncHandler(
         to: result.email,
         subject: "Reset password",
         html: `<h1>Please click given link to reset password.</h1>
-      <a href="https://react-login-app-v59x.onrender.com/reset-password?token=${token}">
+      <a href="react-login-system.netlify.app/reset-password?token=${token}">
       http://localhost:3000/reset-password?token=${token}
       </a>
       `,
