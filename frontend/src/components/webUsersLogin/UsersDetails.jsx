@@ -54,30 +54,6 @@ const UsersDetails = ({ item, getData }) => {
   
 
   return (
-    // <tr>
-    //   <td className="border border-gray-500 px-4 py-2">{item.fullName}</td>
-    //   <td className="border border-gray-500 px-4 py-2">{item.email}</td>
-    //   <td className="border border-gray-500 px-4 py-2">{item.gender}</td>
-
-    //   <td className="border border-gray-500 px-4 py-2">
-    //     {new Date(item.dob).toLocaleDateString()}
-    //   </td>
-    //   <td className="border border-gray-500 px-4 py-2">
-    //     <div className="flex space-x-[15px] ">
-    //       <div className="  bg-green-500 py-[5px] px-[10px] rounded-lg text-white/90">
-    //         <button onClick={handleView(item._id)}>View</button>
-    //       </div>
-
-    //       <div className="bg-blue-400 py-[5px] px-[10px] rounded-lg text-white/90">
-    //         <button onClick={handelUpdate(item._id)}>Update</button>
-    //       </div>
-    //       <div className="bg-red-400 py-[5px] px-[10px] rounded-lg text-white/90">
-    //         <button onClick={handleDelete(item._id)}>Delete</button>
-    //       </div>
-    //     </div>
-    //   </td>
-    // </tr>
-
     <>
       {/* ✅ Desktop/Tablet Table Row */}
       <tr className="hidden md:table-row">
