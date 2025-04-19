@@ -13,23 +13,6 @@ const AdminProfile = () => {
   navigate("/admin/profile-update")
 }
     
-    // let getAdminProfile = async () => {
-    //     try {
-    //         let result = await axios({
-    //             url: `${url}/web-Users/my-profile`,
-    //             method: "get",
-    //             headers: {
-    //                 Authorization:`Bearer ${token}`
-    //             }
-    //         });
-    //         // console.log(result)
-    //         setProfile(result.data.result)
-    //     } catch (error) { }
-    // }
-
-    // useEffect(() => {
-    //   getAdminProfile();
-  // }, [getAdminProfile]);
   useEffect(() => {
     const getAdminProfile = async () => {
       try {
