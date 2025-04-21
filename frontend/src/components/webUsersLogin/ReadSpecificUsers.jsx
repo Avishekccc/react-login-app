@@ -30,7 +30,7 @@ const ReadSpecificUsers = () => {
   }, [ params.id]);
 
   return (
-    <div className="h-[95vh] bg-gradient-to-br from-[#1B8AF1]  to-white   flex justify-center ">
+    <div className="h-[94vh] bg-gradient-to-br from-[#1B8AF1]  to-white   flex justify-center ">
       <div className="h-[300px] w-[350px] bg-white/50 mt-[50px] rounded-lg shadow-lg shadow-blue-500 p-[8px]  space-y-6 border-blue-300 ">
         <div className="border-2 rounded-lg h-full p-2">
           <p className="text-center text-4xl "> {data.fullName}</p>

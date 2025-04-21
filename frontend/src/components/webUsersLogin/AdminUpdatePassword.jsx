@@ -36,7 +36,7 @@ localStorage.removeItem("token")
   };
 
   return (
-    <div className="h-[95vh] bg-gradient-to-br from-[#1B8AF1]  to-white   flex justify-center items-center">
+    <div className="h-[94vh] bg-gradient-to-br from-[#1B8AF1]  to-white   flex justify-center items-center">
       <div className="bg-slate-200 rounded-md px-[35px]  py-[30px] md:px-[35px] md:py-[50px] lg:py-[40px] shadow-lg shadow-blue-400">
         <form onSubmit={handelSubmit}>
           <h1 className="text-[28px] text-center font-semibold text-slate-500 underline mb-[20px]">
@@ -85,7 +85,7 @@ localStorage.removeItem("token")
             </div>
           </fieldset>
           <div className="flex justify-center items-center cursor-pointer mt-[35px] p-[5px]">
-            <div className="inline-block py-[8px] px-[20px] bg-blue-500 active:to-blue-700 rounded-lg">
+            <div className="inline-block py-[8px] px-[20px] bg-blue-500 active:bg-blue-800  rounded-lg">
               <button style={{ cursor: "pointer" }} type="submit">
                 Update Password
               </button>

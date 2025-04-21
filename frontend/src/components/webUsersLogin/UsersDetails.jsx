@@ -89,7 +89,7 @@ const UsersDetails = ({ item, getData }) => {
 
       {/* ✅ Mobile Card View */}
      
-        <div className="md:hidden bg-white p-4 rounded-lg shadow mb-4">
+        <div className="md:hidden bg-white p-4 rounded-lg shadow mb-4 ">
           <p>
             <span className="font-semibold">Full Name:</span> {item.fullName}
           </p>

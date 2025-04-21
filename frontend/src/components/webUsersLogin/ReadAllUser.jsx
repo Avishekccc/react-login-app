@@ -31,8 +31,8 @@ const ReadAllUser = () => {
  }, []); 
 
   return (
-    <div className="flex flex-col h-[95vh] bg-gradient-to-br from-[#1B8AF1] to-white ">
-      <div className="m-[5%] overflow-y-scroll ">
+    <div className="flex flex-col h-[94vh] bg-gradient-to-br from-[#1B8AF1] to-white ">
+      <div className="m-[5%] overflow-y-scroll scroll-smooth  md:overflow-hidden ">
         <h2 className="text-2xl font-bold mb-4">User List</h2>
 
         {/* ✅ Table for Desktop/Tablet */}
@@ -70,7 +70,7 @@ const ReadAllUser = () => {
         </table>
 
         {/* ✅ Card List for Mobile */}
-        <div className="md:hidden flex flex-col gap-4">
+        <div className="md:hidden flex flex-col gap-4 px-5 ">
           {users.map((item, i) => {
             return (
               <UsersDetails

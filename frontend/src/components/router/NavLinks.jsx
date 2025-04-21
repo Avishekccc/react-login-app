@@ -18,7 +18,7 @@ const NavLinks = () => {
   
   return (
   
-    <div className="bg-gray-200 bg-opacity-100 h-[5vh] flex justify-between items-center px-5 relative">
+    <div className="bg-white/50 bg-opacity-100 h-[6vh] flex justify-between items-center px-10 relative">
       <h1 className="text-lg font-bold">Login System</h1>
 
       {/* Desktop Menu */}
@@ -48,10 +48,10 @@ const NavLinks = () => {
 
       {/* Mobile Menu Dropdown */}
       {isOpen && (
-        <div className="absolute top-[5vh] left-0 bg-white w-full shadow-lg py-4 flex flex-col items-center gap-4 md:hidden z-10">
+        <div className="absolute top-[6vh] left-0 bg-gray-200 w-full shadow-lg py-4 flex flex-col items-center gap-4 md:hidden z-10">
           {global.token ? (
             <>
-              <NavLink to="/admin/my-profile" onClick={() => setIsOpen(false)}>
+               <NavLink to="/admin/my-profile"  onClick={() => setIsOpen(false)}>
                 My Profile
               </NavLink>
               <NavLink

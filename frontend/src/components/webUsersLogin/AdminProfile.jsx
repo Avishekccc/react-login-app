@@ -32,7 +32,7 @@ const AdminProfile = () => {
     getAdminProfile();
   }, [token]);
   return (
-    <div className="h-[95vh] bg-gradient-to-br from-[#1B8AF1]  to-white   flex justify-center   ">
+    <div className="h-[94vh] bg-gradient-to-br from-[#1B8AF1]  to-white   flex justify-center   ">
       <div className="">
         <div className="h-[500px] w-[350px] bg-white/30 mt-[50px] rounded-lg shadow-lg shadow-blue-500 border-2 ">
           <div

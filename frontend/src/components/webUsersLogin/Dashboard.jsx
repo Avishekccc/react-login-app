@@ -4,7 +4,7 @@ import React from 'react'
 
 const Dashboard = () => {
   return (
-    <div className="h-[95vh] bg-gradient-to-br from-[#1B8AF1]  to-white   flex justify-center items-center">
+    <div className="h-[94vh] bg-gradient-to-br from-[#1B8AF1]  to-white   flex justify-center items-center">
       <div className="text-center space-y-2 p-3">
         <h2 className="text-3xl font-bold text-white">Wellcome To DashBoard</h2>
         <p className='text-lg font-semibold font-mono'>
