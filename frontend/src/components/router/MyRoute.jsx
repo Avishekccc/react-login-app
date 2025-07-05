@@ -12,22 +12,22 @@ import AdminVerify from "../webUsersLogin/AdminVerify";
 import ReadAllUser from "../webUsersLogin/ReadAllUser";
 import ReadSpecificUsers from "../webUsersLogin/ReadSpecificUsers";
 import UpdateSpecificUsers from "../webUsersLogin/UpdateSpecificUsers";
-import NavLinks from "./NavLinks";
 import { GlobalVariableContext } from "../../App";
 import Home from "../webUsersLogin/Home";
 import Dashboard from "../webUsersLogin/Dashboard";
 
 
+
 const MyRoute = () => {
   let { token } = useContext(GlobalVariableContext);
   return (
-    <div>
+    <div className="">
       <Routes>
         <Route
           path="/"
           element={
             <div>
-              <NavLinks></NavLinks>
+              {/* <NavLinks></NavLinks> */}
               <Outlet></Outlet>
             </div>
           }
@@ -42,15 +42,18 @@ const MyRoute = () => {
             element={<AdminVerify></AdminVerify>}
           ></Route>
 
-          <Route path="admin" element={<Outlet></Outlet>}>
+          <Route
+            path="admin"
+            element={
+              <div>
+                {/* <NavLinks></NavLinks> */}
+                <Outlet></Outlet>
+              </div>
+            }
+          >
             {token ? (
               <>
-                <Route
-                  index
-                  element={
-                    <Dashboard></Dashboard>
-                  }
-                ></Route>
+                <Route index element={<Dashboard></Dashboard>}></Route>
                 <Route
                   path="my-profile"
                   element={<AdminProfile></AdminProfile>}
@@ -83,19 +86,19 @@ const MyRoute = () => {
                 </Route>
               </>
             ) : (
-              <></>
+              <>
+                <Route
+                  path="register"
+                  element={<AdminRegister></AdminRegister>}
+                ></Route>
+                <Route path="login" element={<AdminLogin></AdminLogin>}></Route>
+
+                <Route
+                  path="forgot-password"
+                  element={<AdminForgotPassword></AdminForgotPassword>}
+                ></Route>
+              </>
             )}
-
-            <Route
-              path="register"
-              element={<AdminRegister></AdminRegister>}
-            ></Route>
-            <Route path="login" element={<AdminLogin></AdminLogin>}></Route>
-
-            <Route
-              path="forgot-password"
-              element={<AdminForgotPassword></AdminForgotPassword>}
-            ></Route>
           </Route>
         </Route>
         <Route path="*" element={<div>404 Page</div>}></Route>

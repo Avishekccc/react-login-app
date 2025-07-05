@@ -2,6 +2,9 @@ import React, { useState } from 'react'
 import { url } from '../../constant';
 import axios from "axios";
 import { toast } from 'react-toastify';
+import singupgif from "../../assets/singup-gif.gif";
+import { useNavigate } from 'react-router-dom';
+
 
 
 const AdminRegister = () => {
@@ -11,6 +14,7 @@ const AdminRegister = () => {
   let [dob, setDob] = useState("");
   let [gender, setGender] = useState("male");
   let [loading, setLoading] = useState(false); 
+  let navigate = useNavigate();
 
   const handelSubmit = async (e) => {
     e.preventDefault();
@@ -29,12 +33,6 @@ const AdminRegister = () => {
       role: "admin",
     };
 
-    // console.log(data.fullName);
-    // console.log(data.dob);
-    // console.log(data.email);
-    // console.log(data.password);
-    // console.log(data.gender);
-
     try {
       await axios({
         url: `${url}/web-Users`,
@@ -42,7 +40,6 @@ const AdminRegister = () => {
         data: data,
       });
 
-      // console.log(result)
       toast.success(
         "A link has been sent to your Email. Please click the Given link to verify your account."
       );
@@ -74,155 +71,142 @@ const AdminRegister = () => {
     },
   ];
   return (
-    <div className="h-[94vh] bg-gradient-to-br from-[#1B8AF1]  to-white   flex justify-center items-center">
-      <div className=" bg-slate-200 rounded-md px-[35px]  py-[30px] md:px-[35px] md:py-[50px] lg:py-[35px] shadow-lg shadow-blue-400">
-        <h1 className="text-[28px] text-center font-semibold text-slate-500 underline mb-[20px]">
-          Admin Registration
-        </h1>
-        <form onSubmit={handelSubmit}>
-          <fieldset>
-            <div className="space-y-[15px]">
-              <div className="flex flex-col space-y-2">
-                <label
-                  htmlFor="fullName"
-                  className="text-[22px] lg:text-[18px] text-slate-800"
-                >
-                  FullName{" "}
-                </label>
-                <input
-                  type="text"
-                  id="fullName"
-                  placeholder="fullname"
-                  className="p-[8px] md:p-[12px] lg:p-[8px] outline-none rounded-lg"
-                  value={fullName}
-                  onChange={(e) => {
-                    // console.log(e.target.value)
-                    setFullName(e.target.value);
-                  }}
-                />
-              </div>
-
-              <div className="flex flex-col space-y-2">
-                <label
-                  htmlFor="email"
-                  className="text-[22px] lg:text-[18px] text-slate-800"
-                >
-                  Email{" "}
-                </label>
-                <input
-                  type="email"
-                  id="email"
-                  placeholder="email"
-                  className="p-[8px] md:p-[12px] lg:p-[8px] outline-none rounded-lg"
-                  value={email}
-                  onChange={(e) => {
-                    // console.log(e.target.value)
-                    setEmail(e.target.value);
-                  }}
-                />
-              </div>
-
-              <div className="flex flex-col space-y-2">
-                <label
-                  htmlFor="password"
-                  className="text-[22px] lg:text-[18px] text-slate-800"
-                >
-                  Password{" "}
-                </label>
-                <input
-                  type="password"
-                  id="password"
-                  placeholder="password"
-                  className="p-[8px] md:p-[12px] lg:p-[8px] outline-none rounded-lg"
-                  value={password}
-                  onChange={(e) => {
-                    // console.log(e.target.value)
-                    setPassword(e.target.value);
-                  }}
-                />
-              </div>
-
-              <div className="flex flex-col space-y-2">
-                <label
-                  htmlFor="dob"
-                  className="text-[22px] lg:text-[18px] text-slate-800"
-                >
-                  Date of Birth
-                </label>
-                <input
-                  type="date"
-                  id="dob"
-                  className="p-[8px] md:p-[12px] lg:p-[8px] outline-none rounded-lg"
-                  value={dob}
-                  onChange={(e) => {
-                    setDob(e.target.value);
-                  }}
-                />
-              </div>
-
-              <div className=" space-x-4">
-                <label
-                  htmlFor="male"
-                  className="text-[22px] lg:text-[18px] text-slate-800"
-                >
-                  Gender :{" "}
-                </label>
-                {genderOption.map((item, i) => {
-                  return (
-                    <span key={i}>
-                      <input
-                        type="radio"
-                        id={item.value}
-                        value={item.value}
-                        checked={gender === item.value}
-                        onChange={(e) => {
-                          setGender(e.target.value);
-                        }}
-                      />
-                      <label htmlFor={item.value}>{item.label}</label>
-                    </span>
-                  );
-                })}
-              </div>
-            </div>
-          </fieldset>
-          <div className="text-center py-[8px] px-[20px] mt-[30px] bg-blue-500 active:bg-blue-800 rounded-lg cursor-pointer">
-            <button
-              type="submit"
-              disabled={loading}
-              className="text-white flex justify-center items-center gap-2 w-[250px] md:w-[250px] lg:w-[230px]"
-            >
-              {loading ? (
-                <>
-                  <svg
-                    className="animate-spin h-5 w-5 text-white"
-                    viewBox="0 0 24 24"
-                  >
-                    <circle
-                      className="opacity-25"
-                      cx="12"
-                      cy="12"
-                      r="10"
-                      stroke="currentColor"
-                      strokeWidth="4"
-                      fill="none"
-                    />
-                    <path
-                      className="opacity-75"
-                      fill="currentColor"
-                      d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z"
-                    />
-                  </svg>
-                  Registering...
-                </>
-              ) : (
-                "Register"
-              )}
-            </button>
-          </div>
-        </form>
-      </div>
-    </div>
+    <main className="h-screen lg:max-h-screen grid grid-rows-2 lg:grid-cols-2 bg-white/80">
+         <section className="h-[250px] md:h-[350px] lg:h-screen flex justify-center items-center">
+           <div className="">
+             <img
+               src={singupgif}
+               alt="singup illustration"
+               className=" max-h-[250px] md:max-h-[350px] lg:max-h-[500px]  w-auto object-contain"
+             />
+           </div>
+         </section>
+         <section className="h-[300px] md:h-[450px] lg:h-screen flex justify-center items-center px-4 md:px-10">
+           <form
+             onSubmit={handelSubmit}
+             className="w-full max-w-md space-y-6 bg-white rounded-md p-6 md:p-10"
+           >
+             <h1 className="text-2xl md:text-3xl font-semibold text-slate-600">
+               Create Account
+             </h1>
+   
+             <div className="space-y-4">
+               <label className="block">
+                 <span className="block text-gray-700">FullName</span>
+                 <input
+                   type="text"
+                   id="fullName"
+                   placeholder="Jay Shankar"
+                   value={fullName}
+                   onChange={(e) => {
+                     setFullName(e.target.value);
+                   }}
+                   className="w-full border p-2 rounded"
+                 />
+               </label>
+               <label className="block">
+                 <span className="block text-gray-700">Email</span>
+                 <input
+                   type="email"
+                   value={email}
+                   onChange={(e) => setEmail(e.target.value)}
+                   placeholder="example@gmail.com"
+                   className="w-full border p-2 rounded"
+                 />
+               </label>
+               <label className="block">
+                 <span className="block text-gray-700">Password</span>
+                 <input
+                   type="password"
+                   value={password}
+                   onChange={(e) => setPassword(e.target.value)}
+                   placeholder="********"
+                   className="w-full border p-2 rounded"
+                 />
+               </label>
+               <label className="block">
+                 <span className="block text-gray-700">Date Of Birth</span>
+                 <input
+                   type="date"
+                   id="dob"
+                   value={dob}
+                   onChange={(e) => {
+                     setDob(e.target.value);
+                   }}
+                   placeholder="example@gmail.com"
+                   className="w-full border p-2 rounded"
+                 />
+               </label>
+   
+               <label className="flex gap-4">
+                 <span className="block text-gray-700">Gender : </span>
+                 {genderOption.map((item, i) => {
+                   return (
+                     <span key={i}>
+                       <input
+                         type="radio"
+                         id={item.value}
+                         value={item.value}
+                         checked={gender === item.value}
+                         onChange={(e) => {
+                           setGender(e.target.value);
+                         }}
+                       />
+                       <label htmlFor={item.value}>{item.label}</label>
+                     </span>
+                   );
+                 })}
+               </label>
+             </div>
+   
+             <button
+               type="submit"
+               disabled={loading}
+               className="w-full py-2 bg-green-500 text-lg text-gray-300 rounded shadow-md hover:bg-green-600  active:bg-green-600"
+             >
+               {loading ? (
+                 <div className="flex justify-center items-center gap-1">
+                   <svg
+                     className="animate-spin h-4 w-4 text-green-800"
+                     viewBox="0 0 24 24"
+                   >
+                     <circle
+                       className="opacity-25"
+                       cx="12"
+                       cy="12"
+                       r="10"
+                       stroke="currentColor"
+                       strokeWidth="4"
+                       fill="none"
+                     />
+                     <path
+                       className="opacity-75"
+                       fill="currentColor"
+                       d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z"
+                     />
+                   </svg>
+                   Loding...
+                 </div>
+               ) : (
+                 "Sing Up"
+               )}
+             </button>
+   
+             <div className="text-center">
+               <p className="text-sm text-green-700">
+                 Already have an account?{" "}
+                 <button
+                   type="button"
+                   onClick={() => navigate("/admin/login")}
+                   className="text-green-700 font-semibold text-sm"
+                 >
+                   Sign In
+                 </button>
+               </p>
+             </div>
+           </form>
+         </section>
+       </main>
   );
 }
 

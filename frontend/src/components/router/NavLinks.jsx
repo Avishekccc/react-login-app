@@ -17,7 +17,7 @@ const NavLinks = () => {
   // console.log(global)
   
   return (
-    <div className="bg-white/50 bg-opacity-100 h-[6vh] flex justify-between items-center px-7 relative">
+    <div className="bg-green-500 bg-opacity-100 mx-4 flex justify-between items-center px-7 relative">
       <h1 className="text-lg font-bold text-blue-700">Login System</h1>
 
       {/* Desktop Menu */}

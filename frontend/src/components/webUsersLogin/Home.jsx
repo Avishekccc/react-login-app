@@ -8,13 +8,11 @@ const Home = () => {
     let global = useContext(GlobalVariableContext);
   
   return (
-    <div className=" h-[94vh]">
+    <div className="min-h-screen">
       {global.token?(
         <AdminProfile></AdminProfile>
       ):(
-
       <AdminLogin></AdminLogin>
-   
       )}
 
       
