@@ -13,7 +13,7 @@ const AdminLogin = () => {
   let [email, setEmail] = useState("");
   let [password, setPassword] = useState("");
   let [loading, setLoading] = useState(false);// loader state
-  let [isActive,setIsActive] = useState(false)
+
 
   let navigate = useNavigate();
 
