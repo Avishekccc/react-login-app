@@ -81,10 +81,10 @@ const AdminRegister = () => {
              />
            </div>
          </section>
-         <section className="h-[300px] md:h-[450px] lg:h-screen flex justify-center items-center px-4 md:px-10">
+         <section className="h-[300px] md:h-[450px] lg:h-screen flex justify-center items-center px-4 md:px-10 bg-green-100">
            <form
              onSubmit={handelSubmit}
-             className="w-full max-w-md space-y-6 bg-white rounded-md p-6 md:p-10"
+             className="w-full max-w-md space-y-6 rounded-md p-6 md:p-10"
            >
              <h1 className="text-2xl md:text-3xl font-semibold text-slate-600">
                Create Account
@@ -133,7 +133,6 @@ const AdminRegister = () => {
                    onChange={(e) => {
                      setDob(e.target.value);
                    }}
-                   placeholder="example@gmail.com"
                    className="w-full border p-2 rounded"
                  />
                </label>

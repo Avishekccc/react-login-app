@@ -2,21 +2,27 @@ import axios from "axios";
 import React, { useState } from "react";
 import { toast } from "react-toastify";
 import { url } from "../../constant";
+import forgotPasswordIllustration from '../../assets/Forgot-password.gif'
+import { useNavigate } from "react-router-dom";
+import { IoIosArrowBack } from "react-icons/io";
 // REACT_APP_API_KEY = 1234567890;
 
 const AdminForgotPassword = () => {
   let [email, setEmail] = useState("");
   let token = localStorage.getItem("token");
+  let [loading, setLoading] = useState(false);
+  let navigate = useNavigate();
 
   const handelSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true)
 
     let data = {
       email: email,
     };
 
     try {
-       await axios({
+      await axios({
         url: `${url}/web-Users/forgot-password`,
         method: "post",
         data: data,
@@ -24,56 +30,103 @@ const AdminForgotPassword = () => {
           Authorization: `Bearer ${token}`,
         },
       });
-        setEmail("")
-       toast.success(
-         "A link has been sent to your Email. Please click the Given link to reset your password."
-       );
+      setEmail("");
+      toast.success(
+        "A link has been sent to your Email. Please click the Given link to reset your password."
+      );
+      setLoading(false);
     } catch (error) {
       toast.error(error.response.data.message);
+    } finally {
+      setLoading(false); // stop loader
     }
   };
 
   return (
-    <div className="h-[95vh] bg-gradient-to-br from-[#1B8AF1]  to-white   flex justify-center items-center">
-      <div>
-        <h1 className="text-[28px] text-center font-semibold text-slate-500 underline mb-[20px]">
-          Forgot Password
-        </h1>
-        <div className=" bg-slate-200 rounded-md px-[35px]  py-[30px] md:px-[35px] md:py-[50px] lg:py-[20px] lg:px-[20px] shadow-lg shadow-blue-400">
-          <form onSubmit={handelSubmit}>
-            <fieldset>
-              <div className="flex flex-col space-y-2 w-[300px]">
-                <label
-                  htmlFor="email"
-                  className="text-[22px] lg:text-[18px] text-slate-800"
-                >
-                  Email
-                </label>
-                <input
-                  type="email"
-                  id="email"
-                  placeholder="email"
-                  className="p-[8px] md:p-[12px] lg:p-[8px] outline-none rounded-lg"
-                  value={email}
-                  onChange={(e) => {
-                    // console.log(e.target.value)
-                    setEmail(e.target.value);
-                  }}
-                />
-              </div>
-            </fieldset>
-            <p className="text-[10px] text-red-500 mt-[5px]">
-              An email will be sent to your inbox. Please verify!
+    <main className="h-screen grid grid-rows-2 lg:grid-cols-2 bg-white/50 ">
+      <section className=" max-h-screen lg:h-screen flex justify-center items-center">
+        <img
+          src={forgotPasswordIllustration}
+          alt="forgot-Password-Illustration"
+          className="h-full max-h-[500px] w-auto object-cover"
+        />
+      </section>
+      {/* Forgot-Password-Form */}
+      <section className=" max-h-screen lg:h-screen flex justify-center lg:items-center bg-green-100">
+        <form
+          onSubmit={handelSubmit}
+          className="w-full max-w-md px-4 pt-4 md:px-10 space-y-5"
+        >
+          <div className="">
+            <h1 className="text-2xl md:text-3xl font-semibold text-slate-600">
+              Forgot password
+            </h1>
+            <p>
+              Enter your email and we'll send you link to reset your password.
             </p>
-            <div className=" inline-block py-[7px] px-[25px] mt-[15px] bg-blue-500 rounded-lg">
-              <button style={{ cursor: "pointer" }} type="submit">
-                Send
+          </div>
+
+          <label className="block">
+            <span className="block text-gray-700">Email</span>
+            <input
+              type="email"
+              value={email}
+              onChange={(e) => {
+                setEmail(e.target.value);
+              }}
+              placeholder="example@gmail.com"
+              className="w-full border p-2 rounded "
+            />
+          </label>
+
+          <button
+            type="submit"
+            disabled={loading}
+            className="w-full py-2 bg-green-500 text-lg text-gray-300 rounded shadow-md hover:bg-green-600  active:bg-green-600"
+          >
+            {loading ? (
+              <div className="flex justify-center items-center gap-1">
+                <svg
+                  className="animate-spin h-4 w-4 text-green-800"
+                  viewBox="0 0 24 24"
+                >
+                  <circle
+                    className="opacity-25"
+                    cx="12"
+                    cy="12"
+                    r="10"
+                    stroke="currentColor"
+                    strokeWidth="4"
+                    fill="none"
+                  />
+                  <path
+                    className="opacity-75"
+                    fill="currentColor"
+                    d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z"
+                  />
+                </svg>
+                Loding...
+              </div>
+            ) : (
+              "Send"
+            )}
+          </button>
+
+          <div className="text-center w-full flex justify-center  text-green-700 ">
+            
+              <button
+                type="button"
+                onClick={() => navigate("/admin/login")}
+                className="text-green-700 font-semibold text-sm flex   items-center"
+              >
+                <IoIosArrowBack /> Back to login
+             
               </button>
-            </div>
-          </form>
-        </div>
-      </div>
-    </div>
+            
+          </div>
+        </form>
+      </section>
+    </main>
   );
 };
 

@@ -61,10 +61,10 @@ const AdminLogin = () => {
       </section>
 
       {/* FORM SECTION */}
-      <section className="max-h-screen lg:h-screen flex justify-center items-center px-4 md:px-10 ">
+      <section className="max-h-screen lg:h-screen flex justify-center items-center px-4 md:px-10 bg-green-100">
         <form
           onSubmit={handelSubmit}
-          className="w-full max-w-md space-y-3 bg-white rounded-md p-3 md:p-10"
+          className="w-full max-w-md space-y-3  rounded-md p-3 md:p-10"
         >
           <h1 className="text-2xl md:text-3xl font-semibold text-slate-600">
             Let's Join Us
