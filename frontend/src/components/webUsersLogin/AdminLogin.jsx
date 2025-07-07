@@ -8,12 +8,10 @@ import { GlobalVariableContext } from "../../App";
 import loginIllustration from "../../assets/login_illustration.jpg";
 import loginIllustration_Mbl from "../../assets/login_mbl_view_illustration.jpg";
 
-
 const AdminLogin = () => {
   let [email, setEmail] = useState("");
   let [password, setPassword] = useState("");
-  let [loading, setLoading] = useState(false);// loader state
-
+  let [loading, setLoading] = useState(false); // loader state
 
   let navigate = useNavigate();
 
@@ -49,24 +47,24 @@ const AdminLogin = () => {
     }
   };
   return (
-    <main className="lg:max-h-screen grid grid-rows-2 lg:grid-cols-2 bg-white/80">
+    <main className="h-full max-h-screen grid grid-rows-2 lg:grid-cols-2 bg-white/80">
       {/* IMAGE SECTION */}
-      <section className=" lg:h-screen flex justify-center items-center ">
-        <picture className="h-full max-h-[500px] w-auto">
+      <section className="max-h-screen lg:h-screen  flex justify-center items-center px-4 ">
+        <picture className="h-full max-h-[500px] w-auto ">
           <source srcSet={loginIllustration} media="(min-width: 1024px)" />
           <img
             src={loginIllustration_Mbl}
             alt="login illustration"
-            className=" max-h-[500px] w-auto object-contain"
+            className="h-full max-h-[500px] w-auto object-cover"
           />
         </picture>
       </section>
 
       {/* FORM SECTION */}
-      <section className="lg:h-screen flex justify-center items-center px-4 md:px-10 ">
+      <section className="max-h-screen lg:h-screen flex justify-center items-center px-4 md:px-10 ">
         <form
           onSubmit={handelSubmit}
-          className="w-full max-w-md space-y-6 bg-white rounded-md p-6 md:p-10"
+          className="w-full max-w-md space-y-3 bg-white rounded-md p-3 md:p-10"
         >
           <h1 className="text-2xl md:text-3xl font-semibold text-slate-600">
             Let's Join Us
