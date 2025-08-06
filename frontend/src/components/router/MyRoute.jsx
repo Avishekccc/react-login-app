@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { Outlet, Route, Routes } from "react-router-dom";
 import AdminForgotPassword from "../webUsersLogin/AdminForgotPassword";
-import AdminLogin from "../webUsersLogin/AdminLogin";
+// import AdminLogin from "../webUsersLogin/AdminLogin";
 import AdminLogout from "../webUsersLogin/AdminLogout";
 import AdminProfile from "../webUsersLogin/AdminProfile";
 import AdminProfileUpdate from "../webUsersLogin/AdminProfileUpdate";
