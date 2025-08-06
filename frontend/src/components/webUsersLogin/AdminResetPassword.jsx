@@ -27,7 +27,7 @@ const AdminResetPassword = () => {
           Authorization: `Bearer ${token}`,
         },
       });
-      navigate("/admin/login");
+      navigate("/");
     } catch (error) {
       toast.error(error.response.data.message);
     }

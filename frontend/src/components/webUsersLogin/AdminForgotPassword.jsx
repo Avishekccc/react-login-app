@@ -116,7 +116,7 @@ const AdminForgotPassword = () => {
             
               <button
                 type="button"
-                onClick={() => navigate("/admin/login")}
+                onClick={() => navigate("/")}
                 className="text-green-700 font-semibold text-sm flex   items-center"
               >
                 <IoIosArrowBack /> Back to login

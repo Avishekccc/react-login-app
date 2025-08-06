@@ -71,17 +71,18 @@ const AdminRegister = () => {
     },
   ];
   return (
-    <main className="h-screen lg:max-h-screen grid grid-rows-2 lg:grid-cols-2 bg-white/80">
-         <section className="h-[250px] md:h-[350px] lg:h-screen flex justify-center items-center">
+    <main className="max-h-screen lg:max-h-screen grid grid-rows-2 lg:grid-cols-2 bg-white/80">
+      <section className=" md:h-[350px] lg:h-screen flex justify-center items-center">
+        
            <div className="">
              <img
                src={singupgif}
                alt="singup illustration"
-               className=" max-h-[250px] md:max-h-[350px] lg:max-h-[500px]  w-auto object-contain"
+               className="h-full max-h-[300px] md:max-h-[350px] lg:max-h-[500px]  w-auto object-contain"
              />
            </div>
          </section>
-         <section className="h-[300px] md:h-[450px] lg:h-screen flex justify-center items-center px-4 md:px-10 bg-green-100">
+         <section className=" md:h-[450px] lg:h-screen flex justify-center items-center px-4 md:px-10 bg-green-100">
            <form
              onSubmit={handelSubmit}
              className="w-full max-w-md space-y-6 rounded-md p-6 md:p-10"
@@ -196,7 +197,7 @@ const AdminRegister = () => {
                  Already have an account?{" "}
                  <button
                    type="button"
-                   onClick={() => navigate("/admin/login")}
+                   onClick={() => navigate("/")}
                    className="text-green-700 font-semibold text-sm"
                  >
                    Sign In
@@ -210,10 +211,3 @@ const AdminRegister = () => {
 }
 
 export default AdminRegister
-
-
-
-/* 
-{
-   fullName,setFullName,email,setEmail,gender,setGender,
-} */

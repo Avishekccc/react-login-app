@@ -15,6 +15,7 @@ import UpdateSpecificUsers from "../webUsersLogin/UpdateSpecificUsers";
 import { GlobalVariableContext } from "../../App";
 import Home from "../webUsersLogin/Home";
 import Dashboard from "../webUsersLogin/Dashboard";
+import NavLinks from "./NavLinks";
 
 
 
@@ -27,7 +28,6 @@ const MyRoute = () => {
           path="/"
           element={
             <div>
-              {/* <NavLinks></NavLinks> */}
               <Outlet></Outlet>
             </div>
           }
@@ -46,7 +46,7 @@ const MyRoute = () => {
             path="admin"
             element={
               <div>
-                {/* <NavLinks></NavLinks> */}
+                <NavLinks></NavLinks>
                 <Outlet></Outlet>
               </div>
             }
@@ -86,19 +86,18 @@ const MyRoute = () => {
                 </Route>
               </>
             ) : (
-              <>
-                <Route
-                  path="register"
-                  element={<AdminRegister></AdminRegister>}
-                ></Route>
-                <Route path="login" element={<AdminLogin></AdminLogin>}></Route>
-
-                <Route
-                  path="forgot-password"
-                  element={<AdminForgotPassword></AdminForgotPassword>}
-                ></Route>
-              </>
+              <></>
             )}
+          </Route>
+          <Route path="auth" element={<Outlet></Outlet>}>
+            <Route
+              path="register"
+              element={<AdminRegister></AdminRegister>}
+            ></Route>
+            <Route
+              path="forgot-password"
+              element={<AdminForgotPassword></AdminForgotPassword>}
+            ></Route>
           </Route>
         </Route>
         <Route path="*" element={<div>404 Page</div>}></Route>
